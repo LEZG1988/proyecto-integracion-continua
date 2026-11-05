@@ -1,0 +1,33 @@
+name: Docker CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Crear .env de prueba
+        run: cp .env.example .env
+
+      - name: Construir imágenes
+        run: docker compose build
+
+      - name: Levantar contenedores
+        run: docker compose up -d --wait
+
+      - name: Probar comunicación (ida y vuelta)
+        run: |
+          curl -f -X POST http://localhost:3000/tareas -H "Content-Type: application/json" -d '{"titulo":"desde CI"}'
+          curl -f http://localhost:3000/tareas | grep "desde CI"
+
+      - name: Ver logs
+        if: always()
+        run: docker compose logs
+
+      - name: Apagar
+        if: always()
+        run: docker compose down -v
