@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1039" height="482" viewBox="0 0 1039 482" font-family="Consolas, 'Cascadia Mono', 'Lucida Console', monospace" font-size="13">
+  <rect width="100%" height="100%" fill="#012456" stroke="#1f6fbf"/>
+  <rect width="100%" height="30" fill="#ffffff" stroke="#1f6fbf"/>
+  <rect x="10" y="9" width="13" height="13" rx="2" fill="#012456"/><text x="12" y="19" fill="#ffffff" font-size="10">&gt;_</text>
+  <text x="32" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12">Windows PowerShell</text>
+  <text x="927" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" letter-spacing="26">–□✕</text>
+  <text x="10" y="50" xml:space="preserve"><tspan fill="#cccccc">PS C:\Users\cjaim\proyectos\proyecto-integracion-continua&gt; </tspan><tspan fill="#ffff00">docker</tspan><tspan fill="#cccccc"> compose build</tspan></text>
+  <text x="10" y="68" fill="#cccccc" xml:space="preserve">#1 [api internal] load build definition from Dockerfile</text>
+  <text x="10" y="86" fill="#cccccc" xml:space="preserve">#1 DONE 0.0s</text>
+  <text x="10" y="104" fill="#cccccc" xml:space="preserve">#2 [api internal] load metadata for docker.io/library/node:22.11.0-alpine3.20</text>
+  <text x="10" y="122" fill="#cccccc" xml:space="preserve">#2 DONE 0.3s</text>
+  <text x="10" y="140" fill="#cccccc" xml:space="preserve">#3 [api internal] load .dockerignore</text>
+  <text x="10" y="158" fill="#cccccc" xml:space="preserve">#3 DONE 0.0s</text>
+  <text x="10" y="176" fill="#cccccc" xml:space="preserve">#4 [api 1/5] FROM docker.io/library/node:22.11.0-alpine3.20@sha256:b64ced2e7cd0a4816699fe308ce6e8a08ccba463c757c00c14cd372e3d2c763e</text>
+  <text x="10" y="194" fill="#cccccc" xml:space="preserve">#4 DONE 0.0s</text>
+  <text x="10" y="212" fill="#cccccc" xml:space="preserve">#5 [api 2/5] WORKDIR /app</text>
+  <text x="10" y="230" fill="#cccccc" xml:space="preserve">#6 [api internal] load build context</text>
+  <text x="10" y="248" fill="#cccccc" xml:space="preserve">#6 DONE 0.0s</text>
+  <text x="10" y="266" fill="#cccccc" xml:space="preserve">#7 [api 3/5] COPY package.json ./</text>
+  <text x="10" y="284" fill="#cccccc" xml:space="preserve">#7 DONE 0.1s</text>
+  <text x="10" y="302" fill="#cccccc" xml:space="preserve">#8 [api 4/5] RUN npm install --omit=dev</text>
+  <text x="10" y="320" fill="#cccccc" xml:space="preserve">#8 5.699 added 82 packages, and audited 83 packages in 5s</text>
+  <text x="10" y="338" fill="#cccccc" xml:space="preserve">#8 DONE 5.8s</text>
+  <text x="10" y="356" fill="#cccccc" xml:space="preserve">#9 [api 5/5] COPY src ./src</text>
+  <text x="10" y="374" fill="#cccccc" xml:space="preserve">#9 DONE 0.1s</text>
+  <text x="10" y="392" fill="#cccccc" xml:space="preserve">#10 [api] exporting to image</text>
+  <text x="10" y="410" fill="#cccccc" xml:space="preserve">#10 naming to docker.io/library/proyecto-integracion-continua-api 0.0s done</text>
+  <text x="10" y="428" fill="#cccccc" xml:space="preserve">#10 DONE 0.3s</text>
+  <text x="10" y="446" fill="#cccccc" xml:space="preserve"></text>
+  <text x="10" y="464" fill="#cccccc" xml:space="preserve">PS C:\Users\cjaim\proyectos\proyecto-integracion-continua&gt; </text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="428" viewBox="0 0 640 428" font-family="Consolas, 'Cascadia Mono', 'Lucida Console', monospace" font-size="13">
+  <rect width="100%" height="100%" fill="#012456" stroke="#1f6fbf"/>
+  <rect width="100%" height="30" fill="#ffffff" stroke="#1f6fbf"/>
+  <rect x="10" y="9" width="13" height="13" rx="2" fill="#012456"/><text x="12" y="19" fill="#ffffff" font-size="10">&gt;_</text>
+  <text x="32" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12">Windows PowerShell</text>
+  <text x="528" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" letter-spacing="26">–□✕</text>
+  <text x="10" y="50" xml:space="preserve"><tspan fill="#cccccc">PS C:\Users\cjaim\proyectos\proyecto-integracion-continua&gt; </tspan><tspan fill="#ffff00">docker</tspan><tspan fill="#cccccc"> compose up -d</tspan></text>
+  <text x="10" y="68" fill="#cccccc" xml:space="preserve"> Network red-proyecto  Creating</text>
+  <text x="10" y="86" fill="#cccccc" xml:space="preserve"> Network red-proyecto  Created</text>
+  <text x="10" y="104" fill="#cccccc" xml:space="preserve"> Volume "proyecto-integracion-continua_pgdata"  Creating</text>
+  <text x="10" y="122" fill="#cccccc" xml:space="preserve"> Volume "proyecto-integracion-continua_pgdata"  Created</text>
+  <text x="10" y="140" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-db-1  Creating</text>
+  <text x="10" y="158" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-db-1  Created</text>
+  <text x="10" y="176" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-api-1  Creating</text>
+  <text x="10" y="194" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-api-1  Created</text>
+  <text x="10" y="212" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-db-1  Starting</text>
+  <text x="10" y="230" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-db-1  Started</text>
+  <text x="10" y="248" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-db-1  Waiting</text>
+  <text x="10" y="266" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-db-1  Healthy</text>
+  <text x="10" y="284" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-api-1  Starting</text>
+  <text x="10" y="302" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-api-1  Started</text>
+  <text x="10" y="320" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-api-1  Waiting</text>
+  <text x="10" y="338" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-db-1  Waiting</text>
+  <text x="10" y="356" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-api-1  Healthy</text>
+  <text x="10" y="374" fill="#cccccc" xml:space="preserve"> Container proyecto-integracion-continua-db-1  Healthy</text>
+  <text x="10" y="392" fill="#cccccc" xml:space="preserve"></text>
+  <text x="10" y="410" fill="#cccccc" xml:space="preserve">PS C:\Users\cjaim\proyectos\proyecto-integracion-continua&gt; </text>
+</svg>

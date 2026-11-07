@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="777" height="986" viewBox="0 0 777 986" font-family="Consolas, 'Cascadia Mono', 'Lucida Console', monospace" font-size="13">
+  <rect width="100%" height="100%" fill="#012456" stroke="#1f6fbf"/>
+  <rect width="100%" height="30" fill="#ffffff" stroke="#1f6fbf"/>
+  <rect x="10" y="9" width="13" height="13" rx="2" fill="#012456"/><text x="12" y="19" fill="#ffffff" font-size="10">&gt;_</text>
+  <text x="32" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12">Windows PowerShell</text>
+  <text x="665" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" letter-spacing="26">–□✕</text>
+  <text x="10" y="50" xml:space="preserve"><tspan fill="#cccccc">PS C:\Users\cjaim\proyectos\proyecto-integracion-continua&gt; </tspan><tspan fill="#ffff00">docker</tspan><tspan fill="#cccccc"> network inspect red-proyecto</tspan></text>
+  <text x="10" y="68" fill="#cccccc" xml:space="preserve">[</text>
+  <text x="10" y="86" fill="#cccccc" xml:space="preserve">    {</text>
+  <text x="10" y="104" fill="#cccccc" xml:space="preserve">        "Name": "red-proyecto",</text>
+  <text x="10" y="122" fill="#cccccc" xml:space="preserve">        "Id": "0f94edea7f2a43a59b35a7f0b17013837bc2f88ea3596204ee141ccf47acd762",</text>
+  <text x="10" y="140" fill="#cccccc" xml:space="preserve">        "Created": "2026-11-04T14:25:26.29383559Z",</text>
+  <text x="10" y="158" fill="#cccccc" xml:space="preserve">        "Scope": "local",</text>
+  <text x="10" y="176" fill="#cccccc" xml:space="preserve">        "Driver": "bridge",</text>
+  <text x="10" y="194" fill="#cccccc" xml:space="preserve">        "EnableIPv6": false,</text>
+  <text x="10" y="212" fill="#cccccc" xml:space="preserve">        "IPAM": {</text>
+  <text x="10" y="230" fill="#cccccc" xml:space="preserve">            "Driver": "default",</text>
+  <text x="10" y="248" fill="#cccccc" xml:space="preserve">            "Options": null,</text>
+  <text x="10" y="266" fill="#cccccc" xml:space="preserve">            "Config": [</text>
+  <text x="10" y="284" fill="#cccccc" xml:space="preserve">                {</text>
+  <text x="10" y="302" fill="#cccccc" xml:space="preserve">                    "Subnet": "172.25.0.0/16",</text>
+  <text x="10" y="320" fill="#cccccc" xml:space="preserve">                    "Gateway": "172.25.0.1"</text>
+  <text x="10" y="338" fill="#cccccc" xml:space="preserve">                }</text>
+  <text x="10" y="356" fill="#cccccc" xml:space="preserve">            ]</text>
+  <text x="10" y="374" fill="#cccccc" xml:space="preserve">        },</text>
+  <text x="10" y="392" fill="#cccccc" xml:space="preserve">        "Internal": false,</text>
+  <text x="10" y="410" fill="#cccccc" xml:space="preserve">        "Attachable": false,</text>
+  <text x="10" y="428" fill="#cccccc" xml:space="preserve">        "Ingress": false,</text>
+  <text x="10" y="446" fill="#cccccc" xml:space="preserve">        "ConfigFrom": {</text>
+  <text x="10" y="464" fill="#cccccc" xml:space="preserve">            "Network": ""</text>
+  <text x="10" y="482" fill="#cccccc" xml:space="preserve">        },</text>
+  <text x="10" y="500" fill="#cccccc" xml:space="preserve">        "ConfigOnly": false,</text>
+  <text x="10" y="518" fill="#cccccc" xml:space="preserve">        "Containers": {</text>
+  <text x="10" y="536" fill="#cccccc" xml:space="preserve">            "256f2ed5b25ec874b0e565c247f680d4ab1ae57e684e42f4575024971507158c": {</text>
+  <text x="10" y="554" fill="#cccccc" xml:space="preserve">                "Name": "proyecto-integracion-continua-api-1",</text>
+  <text x="10" y="572" fill="#cccccc" xml:space="preserve">                "EndpointID": "2b49557c4559971ea3308372d0ddb1f44972837fa2f18438a5e991925e6c7763",</text>
+  <text x="10" y="590" fill="#cccccc" xml:space="preserve">                "MacAddress": "02:42:ac:19:00:03",</text>
+  <text x="10" y="608" fill="#cccccc" xml:space="preserve">                "IPv4Address": "172.25.0.3/16",</text>
+  <text x="10" y="626" fill="#cccccc" xml:space="preserve">                "IPv6Address": ""</text>
+  <text x="10" y="644" fill="#cccccc" xml:space="preserve">            },</text>
+  <text x="10" y="662" fill="#cccccc" xml:space="preserve">            "902be172fd8f9cba472618f6211b66438510b3fbfd63f778c2920e4a91b47d6a": {</text>
+  <text x="10" y="680" fill="#cccccc" xml:space="preserve">                "Name": "proyecto-integracion-continua-db-1",</text>
+  <text x="10" y="698" fill="#cccccc" xml:space="preserve">                "EndpointID": "573d97bc4eb5703ede3a7b63670a22372d83246f5c06f476e9ae830d47362622",</text>
+  <text x="10" y="716" fill="#cccccc" xml:space="preserve">                "MacAddress": "02:42:ac:19:00:02",</text>
+  <text x="10" y="734" fill="#cccccc" xml:space="preserve">                "IPv4Address": "172.25.0.2/16",</text>
+  <text x="10" y="752" fill="#cccccc" xml:space="preserve">                "IPv6Address": ""</text>
+  <text x="10" y="770" fill="#cccccc" xml:space="preserve">            }</text>
+  <text x="10" y="788" fill="#cccccc" xml:space="preserve">        },</text>
+  <text x="10" y="806" fill="#cccccc" xml:space="preserve">        "Options": {},</text>
+  <text x="10" y="824" fill="#cccccc" xml:space="preserve">        "Labels": {</text>
+  <text x="10" y="842" fill="#cccccc" xml:space="preserve">            "com.docker.compose.network": "red-proyecto",</text>
+  <text x="10" y="860" fill="#cccccc" xml:space="preserve">            "com.docker.compose.project": "proyecto-integracion-continua",</text>
+  <text x="10" y="878" fill="#cccccc" xml:space="preserve">            "com.docker.compose.version": "2.24.6"</text>
+  <text x="10" y="896" fill="#cccccc" xml:space="preserve">        }</text>
+  <text x="10" y="914" fill="#cccccc" xml:space="preserve">    }</text>
+  <text x="10" y="932" fill="#cccccc" xml:space="preserve">]</text>
+  <text x="10" y="950" fill="#cccccc" xml:space="preserve"></text>
+  <text x="10" y="968" fill="#cccccc" xml:space="preserve">PS C:\Users\cjaim\proyectos\proyecto-integracion-continua&gt; </text>
+</svg>

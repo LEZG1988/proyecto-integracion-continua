@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1493" height="158" viewBox="0 0 1493 158" font-family="Consolas, 'Cascadia Mono', 'Lucida Console', monospace" font-size="13">
+  <rect width="100%" height="100%" fill="#012456" stroke="#1f6fbf"/>
+  <rect width="100%" height="30" fill="#ffffff" stroke="#1f6fbf"/>
+  <rect x="10" y="9" width="13" height="13" rx="2" fill="#012456"/><text x="12" y="19" fill="#ffffff" font-size="10">&gt;_</text>
+  <text x="32" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12">Windows PowerShell</text>
+  <text x="1381" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" letter-spacing="26">–□✕</text>
+  <text x="10" y="50" xml:space="preserve"><tspan fill="#cccccc">PS C:\Users\cjaim\proyectos\proyecto-integracion-continua&gt; </tspan><tspan fill="#ffff00">Invoke-RestMethod</tspan><tspan fill="#cccccc"> -Method Post -Uri http://localhost:3001/tareas -ContentType "application/json" -Body '{"titulo":"Primera tarea"}'</tspan></text>
+  <text x="10" y="68" fill="#cccccc" xml:space="preserve">id titulo        creada                  </text>
+  <text x="10" y="86" fill="#cccccc" xml:space="preserve">-- ------        ------                  </text>
+  <text x="10" y="104" fill="#cccccc" xml:space="preserve"> 1 Primera tarea 2026-11-04T14:25:34.440Z</text>
+  <text x="10" y="122" fill="#cccccc" xml:space="preserve"></text>
+  <text x="10" y="140" fill="#cccccc" xml:space="preserve">PS C:\Users\cjaim\proyectos\proyecto-integracion-continua&gt; </text>
+</svg>
