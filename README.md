@@ -7,7 +7,7 @@ Dos contenedores comunicados entre sí con Docker Compose:
 | Servicio | Papel | Imagen | Puerto |
 |---|---|---|---|
 | `api` | Aplicación (Node.js + Express) | `node:22.11.0-alpine3.20` (Dockerfile propio) | 3000 |
-| `db` | Base de datos (PostgreSQL) con volumen `pgdata` | `postgres:16.4-alpine` | 5432 (solo interno) |
+| `db` | Base de datos (PostgreSQL) con volumen `pgdata` | `postgres:16.4-alpine` (Dockerfile propio con `init.sql`) | 5432 (solo interno) |
 
 La API se conecta a la base de datos usando el **nombre del servicio** `db` dentro de la red `red-proyecto` (variable `DB_HOST=db`), no `localhost` ni una IP fija.
 
@@ -168,6 +168,14 @@ GET       → [{"id":1,"titulo":"Primera tarea","creada":"..."}]
 
 `"dbHost":"db"` muestra que la conexión usa el nombre del servicio.
 
+### Pruebas automáticas
+
+```bash
+docker compose run --rm pruebas
+```
+
+Levanta un contenedor de pruebas en la misma red que llama a la API por el nombre del servicio (`http://api:3000`): verifica que la API llegue a la base de datos como `db`, guarda y lee una tarea, y comprueba que rechace una tarea sin título. Si algo falla, el comando termina con error.
+
 ### Comunicación dentro de la red de Docker
 
 ```bash
@@ -193,20 +201,64 @@ docker compose down -v     # apaga y borra el volumen de datos
 | `port is already allocated` en el 3000 | Cambiar `API_PORT` en el `.env` (por ejemplo `API_PORT=3001`) y usar ese puerto en las pruebas |
 | `relation "tareas" does not exist` | El script `db/init.sql` solo corre cuando el volumen es nuevo: `docker compose down -v` y volver a levantar |
 
-## Integración continua
+## Integración continua con Jenkins
 
-El workflow [`.github/workflows/docker.yml`](.github/workflows/docker.yml) se ejecuta en cada push y pull request: construye las imágenes, levanta los contenedores, prueba el guardado y la lectura de una tarea, y los apaga.
+Jenkins corre en su propio contenedor (`jenkins/jenkins:2.580.2-lts-jdk21`) y ejecuta el [`Jenkinsfile`](Jenkinsfile) del repositorio cada vez que hay un push a `main`.
+
+```
+commit → GitHub → Jenkins (Poll SCM cada 2 min) → Checkout → Build → Deploy → Test → post (limpieza)
+```
+
+### Levantar Jenkins
+
+```bash
+# 1. Crear el archivo de secretos de Jenkins (no se sube al repositorio)
+cp jenkins/.env.example jenkins/.env      # y cambiar las contraseñas
+
+# 2. Construir la imagen de Jenkins y levantarlo
+docker compose -f docker-compose.jenkins.yml up -d --build
+```
+
+Abrir http://localhost:8080 e iniciar sesión con `JENKINS_ADMIN_ID` y `JENKINS_ADMIN_PASSWORD` del `jenkins/.env`. No hay asistente de instalación: la configuración se aplica sola desde [`jenkins/casc.yaml`](jenkins/casc.yaml).
+
+| Elemento | Dónde se define |
+|---|---|
+| Plugins con versión fija (Git, GitHub, Pipeline, Docker Pipeline, Stage View…) | [`jenkins/plugins.txt`](jenkins/plugins.txt) |
+| Usuario administrador | `jenkins/casc.yaml` con valores de `jenkins/.env` |
+| Credencial `postgres-credenciales` (usuario y contraseña de PostgreSQL) | `jenkins/casc.yaml` con valores de `jenkins/.env`; Jenkins la guarda cifrada |
+| Job `proyecto-integracion-continua` con Poll SCM | `jenkins/casc.yaml` |
+| Etapas del pipeline | [`Jenkinsfile`](Jenkinsfile) |
+
+### Etapas del pipeline
+
+| Etapa | Qué hace |
+|---|---|
+| Checkout | Descarga el commit desde GitHub |
+| Build | Crea el `.env` con la credencial guardada en Jenkins y construye las imágenes de `api`, `db` y `pruebas` |
+| Deploy | Levanta `db` y `api` y espera a que estén saludables |
+| Test | Ejecuta `docker compose run --rm pruebas`; si una prueba falla, el build queda en rojo |
+| post | Guarda los logs de los contenedores, apaga todo y borra el `.env` |
+
+### GitHub Actions
+
+El workflow [`.github/workflows/docker.yml`](.github/workflows/docker.yml) también se ejecuta en cada push y pull request: construye las imágenes, levanta los contenedores, prueba el guardado y la lectura de una tarea, y los apaga.
 
 ## Estructura
 
 ```
-api/                 Contenedor 1: la aplicación
-  src/index.js       Endpoints /health y /tareas
+api/                       Contenedor 1: la aplicación
+  src/index.js             Endpoints /health y /tareas
   Dockerfile
   .dockerignore
-db/init.sql          Contenedor 2: crea la tabla tareas
-docker-compose.yml   Orquestación: red, volumen, variables, depends_on
-.env.example         Plantilla de variables (el .env real no se sube)
-.github/workflows/   GitHub Actions: construye y prueba en cada push y PR
-docs/img/            Salida de cada comando, usada en este README
+db/                        Contenedor 2: la base de datos
+  Dockerfile               Imagen propia basada en postgres:16.4-alpine
+  init.sql                 Crea la tabla tareas
+pruebas/                   Pruebas de integración (node:test)
+jenkins/                   Imagen de Jenkins: Dockerfile, plugins.txt, casc.yaml, .env.example
+Jenkinsfile                Pipeline como código
+docker-compose.yml         Orquestación: red, volumen, variables, depends_on, pruebas
+docker-compose.jenkins.yml Servidor Jenkins
+.env.example               Plantilla de variables (el .env real no se sube)
+.github/workflows/         GitHub Actions: construye y prueba en cada push y PR
+docs/img/                  Salida de cada comando, usada en este README
 ```
