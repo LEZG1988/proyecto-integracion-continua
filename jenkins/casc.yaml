@@ -1,0 +1,55 @@
+# Configuración de Jenkins como código (plugin Configuration as Code).
+# Los valores ${...} vienen de jenkins/.env, que NO se sube al repositorio.
+jenkins:
+  systemMessage: "Jenkins del proyecto de integración continua (API de tareas con Docker)"
+  numExecutors: 2
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "${JENKINS_ADMIN_ID}"
+          password: "${JENKINS_ADMIN_PASSWORD}"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  location:
+    url: "http://localhost:8080/"
+
+# Credenciales guardadas (cifradas) en Jenkins; el pipeline las usa con withCredentials
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: "postgres-credenciales"
+              description: "Usuario y contraseña de PostgreSQL para el pipeline"
+              username: "${POSTGRES_USER}"
+              password: "${POSTGRES_PASSWORD}"
+
+# Job de tipo Pipeline que lee el Jenkinsfile del repositorio de GitHub
+jobs:
+  - script: >
+      pipelineJob('proyecto-integracion-continua') {
+        description('Construye y prueba los dos contenedores del proyecto en cada push a GitHub')
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote { url('https://github.com/LEZG1988/proyecto-integracion-continua.git') }
+                branch('*/main')
+              }
+            }
+            scriptPath('Jenkinsfile')
+          }
+        }
+        properties {
+          pipelineTriggers {
+            triggers {
+              pollSCM { scmpoll_spec('H/2 * * * *') }
+            }
+          }
+        }
+      }

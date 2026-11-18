@@ -1,0 +1,10 @@
+git:5.11.0
+github:1.47.0
+workflow-aggregator:608.v67378e9d3db_1
+docker-workflow:653.v2f2c08eff0ec
+pipeline-stage-view:2.41
+pipeline-graph-view:1053.v9df19e6ceed2
+credentials-binding:728.v902a_273b_8947
+configuration-as-code:2147.v8a_8d38668c72
+job-dsl:3752.vb_199526b_20c3
+timestamper:1.30

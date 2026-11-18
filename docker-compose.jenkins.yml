@@ -1,0 +1,22 @@
+# Servidor Jenkins del proyecto: docker compose -f docker-compose.jenkins.yml up -d --build
+name: jenkins
+
+services:
+  jenkins:
+    build: ./jenkins
+    ports:
+      - "8080:8080"   # interfaz web de Jenkins
+    env_file:
+      - ./jenkins/.env
+    volumes:
+      # Configuración, jobs e historial de builds persisten aunque se recree el contenedor
+      - jenkins_home:/var/jenkins_home
+      # Jenkins usa el motor Docker del equipo para construir y levantar los contenedores
+      - /var/run/docker.sock:/var/run/docker.sock
+    group_add:
+      # Grupo dueño del socket de Docker (0 en Docker Desktop; en Linux, el GID del grupo docker)
+      - "${DOCKER_GID:-0}"
+    restart: unless-stopped
+
+volumes:
+  jenkins_home:
